@@ -1,0 +1,3 @@
+FLASK_APP=flask_test1.app
+FLASK_ENV=development
+FLASK_DEBUG=True
