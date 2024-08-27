@@ -1,24 +1,30 @@
 from flask import Flask, render_template
 from dotenv import load_dotenv
+from .extentions import db
 import os
-
-from sqlalchemy.testing.plugin.bootstrap import bootstrap_file
-
-load_dotenv()
 
 
 def create_app():
     app = Flask(__name__)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
+    load_dotenv()
 
-    bootstrap_css = os.getenv('BOOTSTRAP_CSS')
+    bootstrap_css = os.getenv('CSS_BOOTSTRAP')
+
+    @app.context_processor
+    def inject_bootstrap_css():
+        return dict(bootstrap_css=bootstrap_css)
 
 
     @app.route("/")
     def index():
-        return render_template('index.html', bootstrap_css=bootstrap_css)
+        return render_template('index.html')
 
     @app.route("/about")
-    def about_us():
+    def about():
         return render_template('about.html')
     return app
 
