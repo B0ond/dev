@@ -1,15 +1,17 @@
+import os
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from .config import Config
-
+from .routes import user
 from .extensions import db
-import os
+
 
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
     db.init_app(app)
+    app.register_blueprint(user)
 
     # app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}"
     with app.app_context():
