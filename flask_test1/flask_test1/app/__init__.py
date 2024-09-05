@@ -1,20 +1,23 @@
+import os
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from .config import Config
-
 from .extensions import db
-import os
+from .routes import user
 
 
 def create_app(config_class=Config):
+    load_dotenv()
     app = Flask(__name__)
     app.config.from_object(config_class)
+    app.register_blueprint(user)
+
     db.init_app(app)
 
     # app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}"
     with app.app_context():
         db.create_all()
-    load_dotenv()
+
 
     bootstrap_css = os.getenv('CSS_BOOTSTRAP')
 
