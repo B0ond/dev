@@ -1,6 +1,6 @@
 from flask import Blueprint
-from .extensions import db
-from .models.models import User
+from ..extensions import db
+from ..models.model_user import User
 
 user = Blueprint('user', __name__)
 
@@ -9,4 +9,4 @@ def create_user(name):
     user = User(name=name)
     db.session.add(user)
     db.session.commit()
-    return "User Created Successfully!!!"
+    return 'User created successfully!'
