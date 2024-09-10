@@ -25,11 +25,11 @@ def create_app(config_class=Config):
         db.create_all()
 
     load_dotenv()
-    bootstrap_css = os.getenv('CSS_BOOTSTRAP')
+    #bootstrap_css = os.getenv('CSS_BOOTSTRAP')   для работы через env файл
 
-    @app.context_processor
-    def inject_bootstrap_css():
-        return dict(bootstrap_css=bootstrap_css)
+    # @app.context_processor
+    # def inject_bootstrap_css():
+    #     return dict(bootstrap_css=bootstrap_css)
 
 
     # @app.route("/")
