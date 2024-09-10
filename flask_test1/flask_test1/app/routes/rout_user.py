@@ -4,6 +4,7 @@ from ..models.model_user import User
 
 user = Blueprint('user', __name__)
 
+
 @user.route('/user/<name>')
 def create_user(name):
     user = User(name=name)
