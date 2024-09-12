@@ -1,12 +1,12 @@
-/* HEADER */
+@import url('fonts.css');
 
+/* HEADER */
 header {
     position: sticky;
     top: 0;
-    -webkit-box-shadow: 0px 5px 25px 0px rgba(3, 4, 3, 0.24);
-    box-shadow: 0px 5px 25px 0px rgba(5, 5, 5, 0.22);
+    /*-webkit-box-shadow: 0px 5px 25px 0px rgba(3, 4, 3, 0.24);*/
+    /*box-shadow: 0px 5px 25px 0px rgba(5, 5, 5, 0.22);*/
     z-index: 100;
-    background: #ffffff;
 
 }
 
@@ -19,6 +19,16 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+body {
+    background: #212121;
+    color: #fff;
+}
+
+h1 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
 }
 
 
