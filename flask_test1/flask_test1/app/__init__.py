@@ -6,18 +6,20 @@ from .routes.rout_user import user
 from .routes.rout_post import post
 from .routes.rout_main import main
 from .routes.rout_about import about
-from .extensions import db
+from .extensions import db, migrate
 
 
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-    db.init_app(app)
     app.register_blueprint(user)
     app.register_blueprint(post)
     app.register_blueprint(main)
     app.register_blueprint(about)
+
+    db.init_app(app)
+    migrate.init_app(app, db)
 
 
     # app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}"

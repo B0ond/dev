@@ -12,12 +12,12 @@
 
 </head>
 <body>
+<header class="header"> {% include 'main/_header.html' %} </header> {# включаем _header.html #}
 <div class="page">
-    <header> {% include 'main/_header.html' %} </header> {# включаем _header.html #}
-    <main>
+    <main class="content">
         {% block content %}{% endblock %}  {# Основной контент #}
     </main>
-    <footer>{% include "main/_footer.html" %}</footer> {# включаем _footer.html #}
+    <footer>{% include 'main/_footer.html' %}</footer> {# включаем _footer.html #}
 </div>
 {#js code#}
 <script src="{{ url_for('static', filename='js/libs/bootstrap.min.js') }}"></script>

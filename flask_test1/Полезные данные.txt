@@ -23,16 +23,18 @@ PostgreSQL:
     psql
 
 создать роль/пользователя:
-    create role amir with password 'your password'
+    create role  USER_NAME with password 'your password'
 
-без этой команды работать с БД неполучится:
-    alter role "amir" with login;
-
-Выдат ьвсе права на базу данных для пользователя:
-    grant all privileges on database "my_db" to amir;
+без этой команды работать юзеру с БД неполучится:
+    alter role "USER_NAME" with login;
 
 Дает разрещение пользователю создавать базы данных:
-    alter user amir createdb
+    alter user USER_NAME createdb
+
+
+Выдать все права на базу данных для пользователя:
+    grant all privileges on database "my_db" to USER_NAME;
+
 
 Проверить бд:
     \list (\l)
@@ -40,10 +42,21 @@ PostgreSQL:
         \c db_name  (\connect db_name)
 
 Дать все привелегии на схему public:
-    grant all on schema public to amir;
+    grant all on schema public to USER_NAME;
 
 выход:
     exit
 
 Что бы перейти в пользователя:
     su role_name
+
+
+==========================================
+МИГРАЦИИ
+
+Что бы можно было делать миграции надо устновить flask-migrate
+перед инициализацие удалить все тестовые db
+далее запускаем инициализацию
+    flask db init
+что бы фласк подхватил изменения db надо ввести
+    flask db migrate
