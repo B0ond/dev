@@ -41,7 +41,7 @@ PostgreSQL:
     Подключиться к БД:
         \c db_name  (\connect db_name)
 
-Дать все привелегии на схему public:
+Дать все привелегии на схему public (находясь в нужной db и через пользователя postgresql):
     grant all on schema public to USER_NAME;
 
 выход:
