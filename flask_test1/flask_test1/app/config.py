@@ -9,5 +9,5 @@ class Config(object):
 
 
     SQLALCHEMY_DATABASE_URI = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}"
-    SECRET_KEY = '*&^r64gfisegf7634giwhdfg868^$VEytreuiTY'
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'secret')
     SQLALCHEMY_TRACK_MODIFICATIONS = True
