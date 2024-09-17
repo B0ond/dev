@@ -1,12 +1,9 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 from ..extensions import db
 from ..models.model_post import Post
 
 post = Blueprint('post', __name__)
 
-@post.route('/post/<subject>')
-def create_post(subject):
-    post = Post(subject=subject)
-    db.session.add(post)
-    db.session.commit()
-    return 'Subject created successfully!'
+@post.route('/post/create', methods=['POST', 'GET'])
+def create():
+    return render_template('post/create.html')

@@ -1,5 +1,12 @@
 {% extends 'main/base.html' %}
 
-{% block title %}
-	Добовление темы
+{% block title %}Добовление темы{% endblock %}
+
+{% block content %}
+<form method="post" class="form-control">
+    <input name="teacher" type="text"  placeholder="ФИО преподавателя" class="form-control">
+    <input name="subject" type="text"  placeholder="Тема" class="form-control">
+    <input name="student" type="text"  placeholder="ФИО студента" class="form-control">
+    <input value="Добавить" type="submit" class="btn btn-success"
+</form>
 {% endblock %}
