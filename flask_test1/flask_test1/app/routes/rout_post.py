@@ -8,8 +8,22 @@ post = Blueprint('post', __name__)
 def create():
     if request.method == 'POST':
         teacher = request.form.get('teacher')
+
+        # начало теста
+        test = request.form
+        url = request.url
+        header = request.headers
+        args = request.args
+        cookies = request.cookies
+        print(test)
+        print(f'url == {url}')
+        print(f'header == {header}')
+        print(f'args == {args}')
+        print(f'cookies == {cookies}')
         subject = request.form.get('subject')
         student = request.form.get('student')
+        # конец теста
+
         post = Post(teacher=teacher, subject=subject, student=student)
         try:
             db.session.add(post)

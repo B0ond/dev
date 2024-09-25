@@ -6,7 +6,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-{#            'main.index' значит == берем из template приложение main и дальше index
+{#            'main.index' значит == берем из routes приложение main и дальше index
 это позволяет после изменениея имены ссылки не менять везде подряд#}
             <li><a href="{{ url_for('main.index') }}" class="nav-link px-2 text-secondary">Главная</a></li>
             <li><a href="{{ url_for('about.index') }}" class="nav-link px-2 text-secondary">О нас</a></li>
