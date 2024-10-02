@@ -2,6 +2,8 @@ from datetime import datetime, timezone
 
 from ..extensions import db
 
+
+    # модель регистрации
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(50), default='user')

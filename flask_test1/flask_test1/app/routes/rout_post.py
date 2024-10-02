@@ -2,9 +2,12 @@ from flask import Blueprint, render_template, request, redirect
 from ..extensions import db
 from ..models.model_post import Post
 
+
+# блупринт это роут в отдельном файле для удобства разработки
 post = Blueprint('post', __name__)
 
-@post.route('/', methods=['POST', 'GET'])
+# выводим таблицу по гет,
+@post.route('/', methods=['GET'])
 def all():
     posts = Post.query.order_by(Post.date).all()  # сортировка по дате создания(обновление дату не сбивает)
     return render_template('post/all.html', posts=posts)  # post - все столбцы бд

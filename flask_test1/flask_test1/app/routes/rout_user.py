@@ -1,8 +1,6 @@
 from flask import Blueprint, render_template, redirect
 
 from ..forms import RegistrationForm
-# from ..extensions import db
-# from ..models.model_user import User
 
 user = Blueprint('user', __name__)
 
