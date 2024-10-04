@@ -1,7 +1,6 @@
-import os
 from flask import Flask, render_template
 from dotenv import load_dotenv
-from .config import Config
+from .config import DevConfig
 from .routes.rout_user import user
 from .routes.rout_post import post
 from .routes.rout_about import about
@@ -9,7 +8,7 @@ from .extensions import db, migrate
 
 
 #Главная функция
-def create_app(config_class=Config):
+def create_app(config_class=DevConfig):  # передается класс из config
     app = Flask(__name__)
     app.config.from_object(config_class)
     #регаем блупринты

@@ -1,6 +1,10 @@
 import os
 
-class Config(object):
+class DevConfig(object):
+    APPNAME = 'app'
+    ROOT = os.path.abspath(APPNAME)
+    UPLOAD_PATH = os.environ.get('UPLOAD_PATH', 'path_from_env')  #второй параметр это дефолтное значение
+    SERVER_PATH = ROOT + UPLOAD_PATH
     USER = os.environ.get('POSTGRES_USER', 'user')
     PASSWORD = os.environ.get('POSTGRES_PASSWORD', '<PASSWORD>')
     HOST = os.environ.get('POSTGRES_HOST', 'localhost')

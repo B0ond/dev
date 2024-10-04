@@ -1,17 +1,19 @@
-from flask import Blueprint, render_template, redirect
+from flask import Blueprint, render_template, redirect, request
 
+from ..models.model_user import User
 from ..forms import RegistrationForm
+from ..extensions import bcrypt
 
 user = Blueprint('user', __name__)
 
 @user.route('/user/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    if form.validate_on_submit():
-        print(form.name.data)
-        print(form.password.data)
-        print(form.avatar.data)
-        return redirect('/')
-    else:
-        print('Ошибка регистрации')
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+            user = User(username=form.name.data, login=form.login.data, avatar=form.avatar.data, password=hashed_password)
+            return redirect('/')
+        else:
+            print('Ошибка регистрации')
     return render_template('user/register.html', form=form)
