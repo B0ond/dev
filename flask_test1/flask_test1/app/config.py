@@ -1,7 +1,7 @@
 import os
 
 class DevConfig(object):
-    APPNAME = 'app'
+    APPNAME = 'flask_test1'
     ROOT = os.path.abspath(APPNAME)
     UPLOAD_PATH = os.environ.get('UPLOAD_PATH', 'path_from_env')  #второй параметр это дефолтное значение
     SERVER_PATH = ROOT + UPLOAD_PATH

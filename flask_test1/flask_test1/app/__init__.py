@@ -21,7 +21,6 @@ def create_app(config_class=DevConfig):  # передается класс из 
     migrate.init_app(app, db)
 
 
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}"
     with app.app_context():
         db.create_all()
 
