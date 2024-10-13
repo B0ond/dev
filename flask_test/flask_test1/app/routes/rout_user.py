@@ -14,10 +14,11 @@ def register():
         if form.validate_on_submit():
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
             avatar_filename = save_picture(form.avatar.data)
-            user = User(username=form.name.data, login=form.login.data, avatar=avatar_filename, password=hashed_password)
+            print(f'form.name.data: {form.name.data} TEST TEST TEST')
+            user = User(name=form.name.data, login=form.login.data, avatar=avatar_filename, password=hashed_password)
             db.session.add(user)
             db.session.commit()
-            print('DEBUG вы зарегистрированы')
+            print('DEBUG вы зарегистрированы TEST TEST TEST')
             return redirect('/')
         else:
             print('Ошибка регистрации')

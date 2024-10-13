@@ -14,5 +14,6 @@ def save_picture(picture):
     output_size = (125, 125)  # шаблон рейсайза картинки
     i = Image.open(picture)  # открываем картинку
     i.thumbnail(output_size)  # делаем ресайз картинке
+    print(picture_path)
     i.save(picture_path)  # сохраняем по пути
     return picture_fn  # название картинки, необходимо для бд что бы достать картинку
